@@ -15,6 +15,13 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\\stdClass', $stdClass);
     }
 
+    public function testBuildWithClassNameAsKeyWithConstructorParams()
+    {
+        $reflectionClass = static::$container->build('\\ReflectionClass', array('\\Viocon\ContainerTest'));
+        $this->assertInstanceOf('\\ReflectionClass', $reflectionClass);
+        $this->assertEquals('Viocon\ContainerTest', $reflectionClass->name);
+    }
+
     public function testSetAndBuild()
     {
         static::$container->set('myStdClass', '\\stdClass');
@@ -26,20 +33,22 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
     {
         static::$container->set(
             'myClosure',
-            function () {
+            function ($test1, $test2) {
                 $stdClass = new \stdClass();
-                $stdClass->testVar = 'var value';
-                $stdClass->testMethod = function ($test) {
-                    return $test;
+                $stdClass->testVar1 = $test1;
+                $stdClass->testVar2 = $test2;
+                $stdClass->testMethod = function ($test3) {
+                    return $test3;
                 };
 
                 return $stdClass;
             }
         );
 
-        $myClosure = static::$container->build('myClosure');
+        $myClosure = static::$container->build('myClosure', array('Test Var 1', 'Test Var 2'));
         $this->assertInstanceOf('\\stdClass', $myClosure);
-        $this->assertEquals('var value', $myClosure->testVar);
+        $this->assertEquals('Test Var 1', $myClosure->testVar1);
+        $this->assertEquals('Test Var 2', $myClosure->testVar2);
         $method = $myClosure->testMethod;
         $this->assertEquals('test', $method('test'));
     }
