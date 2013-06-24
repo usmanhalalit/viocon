@@ -1,7 +1,7 @@
 # Viocon
 A simple and flexible IoC or Service container for PHP.
 
-It can be extrmely helpful to decouple your dependencies. You can also mock dependencies at runtime.
+It can be extremely helpful to decouple your dependencies. You can also mock dependencies at runtime.
 
 ## Installation
 
