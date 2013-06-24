@@ -27,6 +27,28 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertInstanceOf('\\stdClass', $stdClass);
     }
 
+    public function testSetAndBuildClosure()
+    {
+        static::$container->set(
+            'myClosure',
+            function () {
+                $stdClass = new \stdClass();
+                $stdClass->testVar = 'var value';
+                $stdClass->testMethod = function ($test) {
+                    return $test;
+                };
+
+                return $stdClass;
+            }
+        );
+
+        $myClosure = static::$container->build('myClosure');
+        $this->assertInstanceOf('\\stdClass', $myClosure);
+        $this->assertEquals('var value', $myClosure->testVar);
+        $method = $myClosure->testMethod;
+        $this->assertEquals('test', $method('test'));
+    }
+
     public function testSingleton()
     {
         $container = static::$container;

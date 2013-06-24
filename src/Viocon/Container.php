@@ -69,14 +69,12 @@ class Container
 
     /**
      * Build from the given key.
-     * If there a class is registered with Container::set() then it's instance
+     * If there is a class registered with Container::set() then it's instance
      * will be returned. If a closure is registered, a closure's return value
      * will be returned. If nothing is registered then it will try to build an
      * instance with new $key(...).
      *
-     * $parameters will be passed to closure or class constructor. If null or no
-     * parameter is given then it will try to resolve dependencies automatically
-     * and recusrsively.
+     * $parameters will be passed to closure or class constructor.
      *
      *
      * @param  string $key
@@ -124,8 +122,7 @@ class Container
     protected static function instanciate($key, $parameters = null)
     {
 
-        if ($key instanceof \Closure)
-        {
+        if ($key instanceof \Closure) {
             return call_user_func_array($key, $parameters);
         }
 
