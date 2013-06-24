@@ -9,11 +9,6 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         static::$container = new Container();
     }
 
-    public function testTheHell()
-    {
-        $this->assertTrue(true);
-    }
-
     public function testBuildWithClassNameAsKey()
     {
         $stdClass = static::$container->build('\\stdClass');
@@ -47,6 +42,16 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals('var value', $myClosure->testVar);
         $method = $myClosure->testMethod;
         $this->assertEquals('test', $method('test'));
+    }
+
+    public function testReplacingWithMockedInstanceOnRuntime()
+    {
+        $mockedClass = new \stdClass();
+        $mockedClass->testVar = 'mocked';
+        static::$container->setInstance('\\stdClass', $mockedClass);
+
+        $stdClass = static::$container->build('\\stdClass');
+        $this->assertEquals('mocked', $stdClass->testVar);
     }
 
     public function testSingleton()

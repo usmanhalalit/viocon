@@ -1,2 +1,3 @@
 # Viocon
-A simple and smart IoC container for PHP.
+A simple and flexible IoC container for PHP.
+

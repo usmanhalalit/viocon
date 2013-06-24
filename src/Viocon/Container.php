@@ -64,7 +64,7 @@ class Container
      */
     public function setInstance($key, $instance)
     {
-        static::$singletons[$key] = $instance;
+        $this->singletons[$key] = $instance;
     }
 
     /**
@@ -119,7 +119,7 @@ class Container
      * @throws \Exception
      * @return mixed
      */
-    protected static function instanciate($key, $parameters = null)
+    protected function instanciate($key, $parameters = null)
     {
 
         if ($key instanceof \Closure) {
