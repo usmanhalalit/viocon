@@ -80,4 +80,15 @@ class ContainerTest extends \PHPUnit_Framework_TestCase
         $stdClass2 = $container->build('mySingleton');
         $this->assertEquals('value', $stdClass2->testVar);
     }
+
+    public function testAlias()
+    {
+        new Container('VContainer');
+        \VContainer::set('myClosure', function()
+        {
+            return 'Test';
+        });
+
+        $this->assertEquals('Test', \VContainer::build('myClosure'));
+    }
 }

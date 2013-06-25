@@ -17,6 +17,18 @@ Library on [Packagist](https://packagist.org/packages/usmanhalalit/viocon).
 ```PHP
 $container = new \Viocon\Container();
 ```
+
+**You can optionally create a class alias too**
+```PHP
+new \Viocon\Container('Container');
+```
+Viocon will create a class alias for you with the given name 'Container'.
+Now you can use this class' methods statically, like
+```PHP
+\Container::set(...);
+\Container::build(...);
+```
+And so ...
 ___
 
 ### Bind a closure

@@ -14,6 +14,13 @@ class Container
      */
     public $singletons = array();
 
+    public function __construct($alias = null)
+    {
+        if ($alias) {
+            class_alias('\\Viocon\\AliasFacade', $alias);
+        }
+    }
+
     /**
      * Register an object with a key
      *
