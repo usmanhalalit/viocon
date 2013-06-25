@@ -11,7 +11,7 @@
          stopOnFailure="false"
          syntaxCheck="false">
     <testsuites>
-        <testsuite name="GetSetGo Test Suite">
+        <testsuite name="Viocon Test Suite">
             <directory>tests/Viocon/</directory>
         </testsuite>
     </testsuites>
