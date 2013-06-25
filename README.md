@@ -1,5 +1,5 @@
 # Viocon [![Build Status](https://travis-ci.org/usmanhalalit/viocon.png?branch=master)](https://travis-ci.org/usmanhalalit/viocon)
-A simple and flexible IoC or Service container for PHP.
+A simple and flexible Dependency Injection or Service container for PHP.
 
 It can be extremely helpful to decouple your dependencies. You can also mock dependencies at runtime.
 
