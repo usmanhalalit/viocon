@@ -1,6 +1,6 @@
 {
 	"name": "usmanhalalit/viocon",
-	"description": "A simple and smart Dependency Injection container for PHP.",
+	"description": "A simple and flexible Dependency Injection container for PHP.",
 	"homepage": "https://github.com/usmanhalalit/viocon",
 	"keywords": ["ioc", "container", "di", "test"],
 	"license": "MIT",
