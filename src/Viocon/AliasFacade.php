@@ -9,7 +9,7 @@
  */
 class AliasFacade {
 
-    protected static $instance;
+    protected static $vioconInstance;
 
     /**
      * @param $method
@@ -19,15 +19,15 @@ class AliasFacade {
      */
     public static function __callStatic($method, $args)
     {
-        if(!static::$instance) {
-            static::$instance = new Container();
+        if(!static::$vioconInstance) {
+            static::$vioconInstance = new Container();
         }
 
-        return call_user_func_array(array(static::$instance, $method), $args);
+        return call_user_func_array(array(static::$vioconInstance, $method), $args);
     }
 
-    public static function setInstance($instance)
+    public static function setVioconInstance($instance)
     {
-        static::$instance = $instance;
+        static::$vioconInstance = $instance;
     }
 }

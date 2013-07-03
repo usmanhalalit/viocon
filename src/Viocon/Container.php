@@ -17,7 +17,7 @@ class Container
     public function __construct($alias = null)
     {
         if ($alias) {
-            AliasFacade::setInstance($this);
+            AliasFacade::setVioconInstance($this);
             class_alias('\\Viocon\\AliasFacade', $alias);
         }
     }
