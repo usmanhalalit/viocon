@@ -4,6 +4,7 @@
 	"homepage": "https://github.com/usmanhalalit/viocon",
 	"keywords": ["ioc", "container", "di", "test"],
 	"license": "MIT",
+	"minimum-stability": "dev",
 	"authors":
 	[
 		{
