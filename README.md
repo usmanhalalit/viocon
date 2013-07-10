@@ -9,7 +9,7 @@ Viocon uses [Composer](http://getcomposer.org/) to make things easy.
 
 Learn to use composer and add this to require (in your composer.json):
 
-    "usmanhalalit/viocon": "dev-master"
+    "usmanhalalit/viocon": "1.0.*@dev"
 
 Library on [Packagist](https://packagist.org/packages/usmanhalalit/viocon).
 
