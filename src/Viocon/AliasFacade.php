@@ -9,6 +9,9 @@
  */
 class AliasFacade {
 
+    /**
+     * @var Container
+     */
     protected static $vioconInstance;
 
     /**
@@ -26,8 +29,19 @@ class AliasFacade {
         return call_user_func_array(array(static::$vioconInstance, $method), $args);
     }
 
-    public static function setVioconInstance($instance)
+    /**
+     * @param Container $instance
+     */
+    public static function setVioconInstance(Container $instance)
     {
         static::$vioconInstance = $instance;
+    }
+
+    /**
+     * @return \Viocon\Container $instance
+     */
+    public static function getVioconInstance()
+    {
+        return static::$vioconInstance;
     }
 }
